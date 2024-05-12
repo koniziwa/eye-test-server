@@ -50,32 +50,30 @@ class Rabkin {
     })
 
     if (normalCounter >= 10)
-      return JSON.stringify({
+      return {
         status: 'result',
         result: 'Пользователь здоров',
-      })
-
-    if (dichromiaCounter >= 3) {
-      if (protanopiaCounter >= 3) {
-        return JSON.stringify({
-          status: 'result',
-          result: 'Подозрение на протанопию',
-        })
-      } else {
-        return JSON.stringify({
-          status: 'result',
-          result: 'Подозрение на дейтеранопию',
-        })
       }
-    }
 
-    return JSON.stringify({
+    if (dichromiaCounter >= 3)
+      return {
+        status: 'result',
+        result: 'Подозрение на дейтеранопию',
+      }
+
+    if (protanopiaCounter >= 3)
+      return {
+        status: 'result',
+        result: 'Подозрение на протанопию',
+      }
+
+    return {
       status: 'next',
       result: this.getRandomImage(
         Array.from({ length: 48 }, (_, i) => i + 1),
         usedImages
       ),
-    })
+    }
   }
 }
 

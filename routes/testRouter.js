@@ -1,8 +1,8 @@
-import Router from "express";
-import TestController from "../controllers/TestController.js";
+import Router from 'express'
+import TestController from '../controllers/TestController.js'
 
-const testRouter = new Router();
+const testRouter = new Router()
 
-testRouter.post('/rabkin', TestController.testRabkin);
+testRouter.post('/rabkin', TestController.testRabkin)
 
-export default testRouter;
+export default testRouter
