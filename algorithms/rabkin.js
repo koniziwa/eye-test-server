@@ -26,8 +26,8 @@ class Rabkin {
 
     const usedImages = []
 
-    const protanopiaKeys = this.getKeys('keys/protanopia_keys.json')
-    const normalKeys = this.getKeys('keys/normal_keys.json')
+    const protanopiaKeys = this.getKeys('./keys/protanopia_keys.json')
+    const normalKeys = this.getKeys('./keys/normal_keys.json')
 
     userAnswers.forEach(({ imageNumber, userAnswer }) => {
       usedImages.push(imageNumber)
@@ -53,18 +53,21 @@ class Rabkin {
       return {
         status: 'result',
         result: 'Пользователь здоров',
+        recommendation: 'Побольше спать',
       }
 
     if (dichromiaCounter >= 3)
       return {
         status: 'result',
         result: 'Подозрение на дейтеранопию',
+        recommendation: 'Побольше спать',
       }
 
     if (protanopiaCounter >= 3)
       return {
         status: 'result',
         result: 'Подозрение на протанопию',
+        recommendation: 'Поболше спать',
       }
 
     return {

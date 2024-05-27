@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 async function startApp() {
   try {
     await mongoose.connect(DB_URL, {
-      dbName: 'eyeTestDataBase',
+      dbName: 'SmartVision',
     })
     app.listen(PORT, () => console.log('SERVER STARTED ON PORT ' + PORT))
   } catch (e) {
