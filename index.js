@@ -4,6 +4,7 @@ import mongoose from 'mongoose'
 
 import authRouter from './routes/authRouter.js'
 import testRouter from './routes/testRouter.js'
+import profileRouter from './routes/profileRouter.js'
 
 const PORT = 5000
 const DB_URL = 'mongodb://localhost:27017'
@@ -15,6 +16,7 @@ app.use(cors())
 app.use(express.static('public'))
 app.use('/test', testRouter)
 app.use('/auth', authRouter)
+app.use('/profile', profileRouter)
 
 app.get('/', (req, res) => {
   res.status(200).json('SERVER IS WORKING')

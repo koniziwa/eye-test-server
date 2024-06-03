@@ -1,6 +1,7 @@
 import User from '../models/User.js'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
+import fs from 'fs'
 
 import { secret } from '../private/config.js'
 
@@ -32,8 +33,16 @@ class AuthController {
         username,
         email,
         password: hashedPassword,
+        name: '-',
+        surname: '-',
+        age: '-',
+        city: '-',
         examinations: [],
       })
+      fs.copyFileSync(
+        './public/images/sample.jpg',
+        `./public/images/avatars/${username}.jpg`
+      )
       await user.save()
       return res.json({ message: 'Пользователь успешно зарегистрирован' })
     } catch (e) {
